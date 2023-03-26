@@ -9,7 +9,9 @@ The default styling results in a resume that looks like this:
 ![alt text](example/react-resume.png "Example")
 
 
-### `npm start`
+### How to run
+
+Make sure you have react installed and run `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
