@@ -4,11 +4,10 @@ import { PublicationData } from "../dataModel";
 function Entry(publication: PublicationData) {
     return (
         <div className="publication entry">
-            <h4>{publication.title} - <span className="notbold">Published in {publication.journal}
-                <a href={publication.link}>[link]</a>
-            </span></h4>
+            <h4>{publication.title} - <span className="notbold">Published in {publication.journal}</span></h4>
             <h5>{publication.date}</h5>
             <p>{publication.description}</p>
+            <a href={publication.link}>view article</a>
         </div>
     );
 }
