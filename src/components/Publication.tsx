@@ -13,12 +13,17 @@ function Entry(publication: PublicationData) {
     );
 }
 
-export default function Education(publications: PublicationData[]) {
-    let publicationElements = [];
-    for (var i in publications) {
-        const publication = publications[i];
-        publicationElements.push(<Entry {...publication} />);
-    }
+interface PublicationProps {
+    publications: PublicationData[];
+}
+
+export default function Publication({ publications }: PublicationProps) {
+    const publicationElements = publications.map((publication) => (
+        <Entry
+            key={`${publication.title}-${publication.journal}-${publication.date}`}
+            {...publication}
+        />
+    ));
 
     return (
         <div className="publication section">

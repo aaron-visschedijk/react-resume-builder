@@ -8,7 +8,11 @@ import Publication from './components/Publication';
 import { ResumeData } from './dataModel';
 
 
-function App(profile: ResumeData) {
+interface AppProps {
+  profile: ResumeData;
+}
+
+function App({ profile }: AppProps) {
   return (
     <div className="app">
       <div className="sidebar">
@@ -25,7 +29,7 @@ function App(profile: ResumeData) {
         />
         <hr className="divider" />
         <Languages
-          {...profile.languages}
+          languages={profile.languages}
         />
       </div>
       <div className="main">
@@ -33,15 +37,15 @@ function App(profile: ResumeData) {
         <h2 className='title'>{profile.title}</h2>
         <hr className="divider" />
         <Experience
-          {...profile.experiences}
+          experiences={profile.experiences}
         />
         <hr className="divider" />
         <Education
-          {...profile.education}
+          educations={profile.education}
         />
         <hr className="divider" />
         <Publication
-          {...profile.publications}
+          publications={profile.publications}
         />
       </div>
     </div>

@@ -1,12 +1,20 @@
 import { LanguageData } from "../dataModel";
 
+interface LanguagesProps {
+    languages: LanguageData[];
+}
 
-export default function Languages(languages: LanguageData[]) {
-    let languageElements = [];
-    for (var i in languages) {
-        const language = languages[i];
-        languageElements.push(<span className="language entry"><b>{language.language}: </b>{language.level}<br /></span>);
-    }
+export default function Languages({ languages }: LanguagesProps) {
+    const languageElements = languages.map((language) => (
+        <span
+            key={language.language}
+            className="language entry"
+        >
+            <b>{language.language}: </b>
+            {language.level}
+            <br />
+        </span>
+    ));
 
     return (
         <div className="languages section">

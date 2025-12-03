@@ -12,12 +12,17 @@ function Entry(education: EducationData) {
     );
 }
 
-export default function Education(educations: EducationData[]) {
-    let educationElements = [];
-    for (var i in educations) {
-        const education = educations[i];
-        educationElements.push(<Entry {...education} />);
-    }
+interface EducationProps {
+    educations: EducationData[];
+}
+
+export default function Education({ educations }: EducationProps) {
+    const educationElements = educations.map((education) => (
+        <Entry
+            key={`${education.school}-${education.degree}-${education.duration}`}
+            {...education}
+        />
+    ));
 
     return (
         <div className="education section">

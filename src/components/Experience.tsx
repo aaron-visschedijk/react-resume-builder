@@ -2,9 +2,9 @@ import { ExperienceData } from "../dataModel";
 
 
 function Entry(experience: ExperienceData) {
-    let achievementElements = experience.achievements?.map(
-        (achievement) => <li>{achievement}</li>
-    );
+    const achievementElements = experience.achievements?.map((achievement, index) => (
+        <li key={index}>{achievement}</li>
+    ));
 
     return (
         <div className="experience entry">
@@ -17,12 +17,17 @@ function Entry(experience: ExperienceData) {
     );
 }
 
-export default function Experience(experiences: ExperienceData[]) {
-    let experienceElements = [];
-    for (var i in experiences) {
-        const experience = experiences[i];
-        experienceElements.push(<Entry {...experience} />);
-    }
+interface ExperienceProps {
+    experiences: ExperienceData[];
+}
+
+export default function Experience({ experiences }: ExperienceProps) {
+    const experienceElements = experiences.map((experience) => (
+        <Entry
+            key={`${experience.company}-${experience.title}-${experience.duration}`}
+            {...experience}
+        />
+    ));
 
     return (
         <div className="experience section">
