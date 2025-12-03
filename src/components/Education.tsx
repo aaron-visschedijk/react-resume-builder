@@ -4,10 +4,15 @@ import { EducationData } from "../dataModel";
 function Entry(education: EducationData) {
     return (
         <div className="education entry">
-            <h4>{education.degree} - <span className="notbold">{education.school}</span></h4>
-            <h5>{education.duration}</h5>
-            <p>{education.location}</p>
-            <p>{education.description}</p>
+            <div className="entry-header">
+                <h4>{education.degree}</h4>
+                <span className="entry-company">{education.school}</span>
+            </div>
+            <div className="entry-meta">
+                <h5>{education.duration}</h5>
+                {education.location && <h5 className="entry-location">{education.location}</h5>}
+            </div>
+            {education.description && <p className="entry-description">{education.description}</p>}
         </div>
     );
 }

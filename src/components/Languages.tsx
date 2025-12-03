@@ -6,20 +6,21 @@ interface LanguagesProps {
 
 export default function Languages({ languages }: LanguagesProps) {
     const languageElements = languages.map((language) => (
-        <span
+        <div
             key={language.language}
-            className="language entry"
+            className="language-item"
         >
-            <b>{language.language}: </b>
-            {language.level}
-            <br />
-        </span>
+            <span className="language-name">{language.language}</span>
+            <span className="language-level">{language.level}</span>
+        </div>
     ));
 
     return (
         <div className="languages section">
             <h3>LANGUAGES</h3>
-            <p>{languageElements}</p>
+            <div className="languages-list">
+                {languageElements}
+            </div>
         </div>
     );
 }

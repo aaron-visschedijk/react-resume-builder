@@ -8,11 +8,16 @@ function Entry(experience: ExperienceData) {
 
     return (
         <div className="experience entry">
-            <h4>{experience.title} - <span className="notbold">{experience.company}</span></h4>
-            <h5>{experience.duration}</h5>
-            <h5><span className="notbold">{experience.location}</span></h5>
-            <p>{experience.description}</p>
-            <ul>{achievementElements}</ul>
+            <div className="entry-header">
+                <h4>{experience.title}</h4>
+                <span className="entry-company">{experience.company}</span>
+            </div>
+            <div className="entry-meta">
+                <h5>{experience.duration}</h5>
+                {experience.location && <h5 className="entry-location">{experience.location}</h5>}
+            </div>
+            {experience.description && <p className="entry-description">{experience.description}</p>}
+            {achievementElements && achievementElements.length > 0 && <ul>{achievementElements}</ul>}
         </div>
     );
 }

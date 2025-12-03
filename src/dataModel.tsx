@@ -4,6 +4,7 @@ export interface ContactData {
     phone: string;
     github: string;
     linkedin: string;
+    personal_website?: string;
 }
 
 export interface AboutData {
@@ -41,6 +42,7 @@ export interface PublicationData {
 }
 
 export interface ResumeData {
+    hyperlinks?: boolean;
     photo: string;
     name: string;
     title: string;

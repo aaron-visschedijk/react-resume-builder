@@ -22,6 +22,7 @@ function App({ profile }: AppProps) {
 
         <Contact
           {...profile.contact}
+          hyperlinks={profile.hyperlinks !== false}
         />
         <hr className="divider" />
         <About
@@ -46,6 +47,7 @@ function App({ profile }: AppProps) {
         <hr className="divider" />
         <Publication
           publications={profile.publications}
+          hyperlinks={profile.hyperlinks !== false}
         />
       </div>
     </div>
